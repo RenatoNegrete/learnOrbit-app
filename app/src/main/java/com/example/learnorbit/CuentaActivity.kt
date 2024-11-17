@@ -6,14 +6,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.learnorbit.databinding.ActivityPrincipalBinding
+import com.example.learnorbit.databinding.ActivityCuentaBinding
 
-class PrincipalActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityPrincipalBinding
+class CuentaActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCuentaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPrincipalBinding.inflate(layoutInflater)
+        binding = ActivityCuentaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navbar = binding.bottomNavigation
@@ -21,11 +21,11 @@ class PrincipalActivity : AppCompatActivity() {
         navbar.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
+                    val intent = Intent(this, PrincipalActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.account -> {
-                    val intent = Intent(this, CuentaActivity::class.java)
-                    startActivity(intent)
                     true
                 }
                 else -> false
