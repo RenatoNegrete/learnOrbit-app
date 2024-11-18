@@ -6,24 +6,23 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.learnorbit.PrincipalActivity.Curso
-import com.example.learnorbit.databinding.ActivityCuentaBinding
+import com.example.learnorbit.databinding.ActivityInfoCursoBinding
 
-class CuentaActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCuentaBinding
-    private val listaCursos = mutableListOf<Curso>()
+class InfoCursoActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityInfoCursoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCuentaBinding.inflate(layoutInflater)
+        binding = ActivityInfoCursoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navbar = binding.bottomNavigation
+        val ir = binding.boton
 
-        listarCursos()
-
-        val adapter = AdaptadorCurso(this, listaCursos)
-        binding.listView.adapter = adapter
+        ir.setOnClickListener {
+            val intent = Intent(this, CursoActivity::class.java)
+            startActivity(intent)
+        }
 
         navbar.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -33,6 +32,8 @@ class CuentaActivity : AppCompatActivity() {
                     true
                 }
                 R.id.account -> {
+                    val intent = Intent(this, CuentaActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.logout -> {
@@ -43,15 +44,5 @@ class CuentaActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
-    }
-
-    private fun listarCursos() {
-        val curso1 = Curso("Introduccion a la programacion", R.drawable.intro_prog, "Jorge Lopez", "Universidad Javeriana")
-        listaCursos.add(curso1)
-        val curso2 = Curso("Estructuras de datos", R.drawable.estruc, "Pedro Gonzales", "Universidad de los Andes")
-        listaCursos.add(curso2)
-        val curso3 = Curso("Programacion avanzada", R.drawable.prog_avaz, "Maria Gomez", "Universidad Javeriana")
-        listaCursos.add(curso3)
     }
 }

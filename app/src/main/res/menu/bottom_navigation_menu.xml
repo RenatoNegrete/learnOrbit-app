@@ -13,4 +13,10 @@
         android:icon="@drawable/account_icon"
         android:title="Cuenta"/>
 
+    <item
+        android:id="@+id/logout"
+        android:enabled="true"
+        android:icon="@drawable/logout_icon"
+        android:title="Cerrar Sesion"/>
+
 </menu>
