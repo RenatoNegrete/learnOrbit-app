@@ -1,6 +1,6 @@
 # learnOrbit
 
-Esta es la implementación de nuestra app movil para **learnOrbit**. La aplicacion esta hecha con AndroidStudio, por lo que por ahora solo se podria descargar en celulares Androi.
+Esta es la implementación de nuestra app movil para **learnOrbit**. La aplicacion esta hecha con AndroidStudio, por lo que por ahora solo se podria descargar en celulares Android.
 
 ## Antes de ejecutar la aplicacion
 
